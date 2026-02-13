@@ -1,0 +1,19 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Graduation Cap Reminder">
+  <defs>
+    <linearGradient id="b1" x1="6" y1="6" x2="58" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#020617"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="c1" x1="15" y1="18" x2="49" y2="43" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#a5b4fc"/>
+      <stop offset="1" stop-color="#60a5fa"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="17" fill="url(#b1)"/>
+  <path d="M12 26l20-10 20 10-20 10z" fill="url(#c1)"/>
+  <path d="M22 30v6.5c0 2.3 4.3 4.5 10 4.5s10-2.2 10-4.5V30l-10 4.8z" fill="#93c5fd"/>
+  <path d="M52 26v10" stroke="#93c5fd" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="52" cy="37.2" r="2.3" fill="#93c5fd"/>
+  <circle cx="46.5" cy="17" r="6" fill="#ef4444"/>
+  <text x="46.5" y="20.3" text-anchor="middle" font-family="Inter,Segoe UI,Arial" font-size="8" font-weight="800" fill="#fff">1</text>
+</svg>
