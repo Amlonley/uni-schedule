@@ -1,0 +1,73 @@
+{
+  "name": "University Schedule | Amirmahdi",
+  "short_name": "Uni Schedule",
+  "id": "./index.html?app=uni-schedule",
+  "description": "Academic planner and university schedule web app.",
+  "lang": "fa",
+  "dir": "rtl",
+  "start_url": "./index.html?source=pwa",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": [
+    "standalone",
+    "browser"
+  ],
+  "handle_links": "preferred",
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  },
+  "prefer_related_applications": false,
+  "categories": ["education", "productivity"],
+  "background_color": "#0f2027",
+  "theme_color": "#0f2027",
+  "shortcuts": [
+    {
+      "name": "برنامه کلاسی",
+      "short_name": "کلاس‌ها",
+      "url": "./?source=pwa&section=schedule",
+      "icons": [
+        {
+          "src": "./assets/icons/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "یادداشت‌ها",
+      "short_name": "یادداشت",
+      "url": "./?source=pwa&section=notes",
+      "icons": [
+        {
+          "src": "./assets/icons/icon-192-maskable.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "icons": [
+    {
+      "src": "./assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/icons/icon-192-maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./assets/icons/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

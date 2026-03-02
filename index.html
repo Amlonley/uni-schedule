@@ -1,0 +1,1458 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#0f2027" />
+    <meta name="application-name" content="University Schedule" />
+    <meta name="apple-mobile-web-app-title" content="Uni Schedule" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="msapplication-TileColor" content="#0f2027" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="manifest" href="./manifest.webmanifest?v=20260228-app-shell-v4" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/favicon-32.png" />
+    <link rel="icon" type="image/svg+xml" href="./assets/svg/favicon.svg" />
+    <link rel="shortcut icon" href="./assets/svg/favicon.svg" />
+    <title>University Schedule |Amirmahdi</title>
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Space+Grotesk:wght@500;700&family=Vazirmatn:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Space+Grotesk:wght@500;700&family=Vazirmatn:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+
+    <!-- Tailwind -->
+    <script src="./assets/vendor/tailwindcss-cdn.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="./src/tailwind-config.js"></script>
+
+    <link rel="stylesheet" href="./styles/main.css" />
+  </head>
+
+  <body
+    data-theme="frosted"
+    data-style-pack="pro"
+    data-anim-enabled="on"
+    data-anim-intensity="low"
+    data-ui-mode="auto"
+    data-perf-mode="normal"
+    data-mobile-ultra-smooth="off"
+    data-display-mode="browser"
+    data-standalone="off"
+    data-app-shell-state="booting"
+    class="min-h-screen text-[var(--text)] bg-[var(--bg)] font-vazir relative overflow-x-hidden"
+  >
+    <div
+      id="appLaunchOverlay"
+      class="app-launch-overlay"
+      role="status"
+      aria-live="polite"
+      aria-hidden="false"
+      aria-label="در حال آماده‌سازی برنامه"
+    >
+      <div class="app-launch-card">
+        <div class="app-launch-logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.9"
+              d="M3 9l9-5 9 5-9 5-9-5z"
+            />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.9"
+              d="M7 11.6V15c0 .6.3 1.2.9 1.5 1 .6 2.6 1.5 4.1 1.5 1.5 0 3.1-.9 4.1-1.5.6-.3.9-.9.9-1.5v-3.4"
+            />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.9"
+              d="M21 10v5"
+            />
+          </svg>
+        </div>
+        <div class="app-launch-title">University Schedule</div>
+        <div class="app-launch-sub" data-launch-status>
+          در حال آماده‌سازی محیط برنامه...
+        </div>
+        <div class="app-launch-progress" aria-hidden="true">
+          <span class="app-launch-progress-fill"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Background Engine -->
+    <div id="bgAnim" class="bg-anim-layer">
+      <div class="orb orb-a animate-pulse-slow"></div>
+      <div class="orb orb-b animate-float"></div>
+      <div class="orb orb-c animate-float" style="animation-duration: 9s"></div>
+
+      <div class="bg-layer bg-glass" aria-hidden="true"></div>
+      <div class="bg-layer bg-brutal" aria-hidden="true"></div>
+      <div class="bg-layer bg-luxury" aria-hidden="true"></div>
+      <div class="bg-layer bg-hacker" aria-hidden="true"></div>
+      <div class="bg-layer bg-aurora" aria-hidden="true"></div>
+      <div class="bg-layer bg-mono" aria-hidden="true"></div>
+      <div class="bg-layer bg-soft" aria-hidden="true"></div>
+      <div class="bg-layer bg-material" aria-hidden="true"></div>
+      <div class="bg-layer bg-frosted" aria-hidden="true"></div>
+      <div class="bg-layer bg-editorial" aria-hidden="true"></div>
+      <div class="bg-layer bg-mathlight" aria-hidden="true"></div>
+      <div class="bg-layer bg-mathdark" aria-hidden="true"></div>
+      <div class="bg-layer bg-chemistrylight" aria-hidden="true"></div>
+      <div class="bg-layer bg-chemistrydark" aria-hidden="true"></div>
+
+      <div class="symbol-layer sym-glass" aria-hidden="true"></div>
+      <div class="symbol-layer sym-brutal" aria-hidden="true"></div>
+      <div class="symbol-layer sym-luxury" aria-hidden="true"></div>
+      <div class="symbol-layer sym-hacker" aria-hidden="true"></div>
+      <div class="symbol-layer sym-aurora" aria-hidden="true"></div>
+      <div class="symbol-layer sym-mono" aria-hidden="true"></div>
+      <div class="symbol-layer sym-soft" aria-hidden="true"></div>
+      <div class="symbol-layer sym-material" aria-hidden="true"></div>
+      <div class="symbol-layer sym-frosted" aria-hidden="true"></div>
+      <div class="symbol-layer sym-editorial" aria-hidden="true"></div>
+      <div class="symbol-layer sym-mathlight" aria-hidden="true"></div>
+      <div class="symbol-layer sym-mathdark" aria-hidden="true"></div>
+      <div class="symbol-layer sym-chemistrylight" aria-hidden="true"></div>
+      <div class="symbol-layer sym-chemistrydark" aria-hidden="true"></div>
+
+      <div class="scanline" aria-hidden="true"></div>
+      <div class="grain" aria-hidden="true"></div>
+    </div>
+
+    <div
+      id="pinnedAlertsBar"
+      class="pinned-alerts-bar hidden"
+      aria-live="polite"
+    ></div>
+
+    <!-- Modals -->
+    <div
+      id="modalOverlay"
+      class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4"
+    ></div>
+    <div
+      id="deleteUndoBar"
+      class="delete-undo-bar hidden"
+      role="status"
+      aria-live="polite"
+      aria-hidden="true"
+    >
+      <div class="delete-undo-main">
+        <span id="txtDeleteUndo" class="delete-undo-text">حذف انجام شد.</span>
+      </div>
+      <div class="delete-undo-actions">
+        <button
+          type="button"
+          id="btnUndoDelete"
+          class="delete-undo-btn delete-undo-btn--undo"
+          onclick="app.undoLastDelete()"
+        >
+          بازگردانی
+        </button>
+        <button
+          type="button"
+          id="btnDismissDeleteUndo"
+          class="delete-undo-btn delete-undo-btn--dismiss"
+          onclick="app.dismissDeleteUndo()"
+        >
+          بستن
+        </button>
+      </div>
+      <span id="deleteUndoProgress" class="delete-undo-progress" aria-hidden="true"></span>
+    </div>
+    <!-- Layout -->
+    <div
+      id="appLayout"
+      class="max-w-[1600px] mx-auto p-4 lg:p-8 grid grid-cols-12 gap-6"
+    >
+      <!-- Navbar -->
+      <nav
+        class="top-nav col-span-12 theme-card p-4 flex flex-wrap items-center justify-between gap-4 sticky top-4 z-40 bg-[var(--bg)]/75"
+      >
+        <div class="nav-brand">
+          <div
+            id="topNavToggleIcon"
+            class="logo-badge logo-badge--toggle select-none"
+            aria-label="باز یا بسته کردن هدر"
+            aria-controls="topNavControls"
+            aria-expanded="true"
+            role="button"
+            tabindex="0"
+            title="باز یا بسته کردن هدر"
+            onclick="app.toggleTopNavCollapsed(event)"
+            onkeydown="app.onTopNavToggleKeydown(event)"
+          >
+            <svg
+              class="logo-icon"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.9"
+                d="M3 9l9-5 9 5-9 5-9-5z"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.9"
+                d="M7 11.6V15c0 .6.3 1.2.9 1.5 1 .6 2.6 1.5 4.1 1.5 1.5 0 3.1-.9 4.1-1.5.6-.3.9-.9.9-1.5v-3.4"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.9"
+                d="M21 10v5"
+              />
+            </svg>
+          </div>
+          <div class="nav-title-block">
+            <h1
+              id="navTitle"
+              class="nav-title-text text-xl font-black tracking-tight"
+            ></h1>
+            <p id="navSub" class="nav-sub-text text-xs opacity-70"></p>
+          </div>
+        </div>
+
+        <div
+          id="topNavControls"
+          class="top-nav-controls flex items-center gap-2 lg:gap-3"
+        >
+          <!-- Week Toggle -->
+          <div
+            class="week-toggle flex p-1 rounded-2xl border border-[var(--border)] bg-[var(--bg)]/35 backdrop-blur-md"
+          >
+            <button
+              onclick="app.setWeek('odd')"
+              id="btnOdd"
+              class="px-4 py-2 rounded-xl text-sm font-black transition-all"
+            ></button>
+            <button
+              onclick="app.setWeek('even')"
+              id="btnEven"
+              class="px-4 py-2 rounded-xl text-sm font-black transition-all"
+            ></button>
+          </div>
+
+          <!-- Theme Picker -->
+          <div
+            id="themeSelectShell"
+            class="premium-select premium-select--theme"
+            data-theme="frosted"
+          >
+            <span class="premium-select-icon" aria-hidden="true">
+              <span class="premium-icon-stack">
+                <span class="premium-icon-state premium-icon-state--theme">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <circle
+                      class="pi-stroke pi-theme-orbit pi-anim"
+                      cx="12"
+                      cy="12"
+                      r="8.05"
+                      stroke-dasharray="1.9 2.5"
+                    />
+                    <path
+                      class="pi-stroke"
+                      d="M12.1 6.2c-3.3 0-6 2.3-6 5.2 0 2.2 1.6 3.9 3.9 3.9h1.1c.53 0 .96.43.96.96 0 .76.61 1.37 1.37 1.37 2.9 0 5-2.19 5-5 0-3.69-3.06-6.45-6.33-6.45Z"
+                    />
+                    <circle
+                      class="pi-theme-core pi-anim"
+                      cx="9.35"
+                      cy="10.15"
+                      r="0.76"
+                    />
+                    <circle
+                      class="pi-theme-core pi-anim"
+                      cx="12.75"
+                      cy="9.1"
+                      r="0.68"
+                    />
+                    <path
+                      class="pi-stroke pi-theme-spark pi-anim"
+                      d="M16.1 6.2h2.3M17.25 5.05v2.3"
+                    />
+                    <path
+                      class="pi-stroke pi-theme-sheen pi-anim"
+                      d="M8.4 12.7h2.4"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </span>
+            <select
+              id="themeSelect"
+              onchange="app.setTheme(this.value)"
+              class="control-surface premium-select-input bg-transparent border border-[var(--border)] text-[var(--text)] text-sm rounded-2xl p-2.5 focus:outline-none font-black cursor-pointer backdrop-blur-md min-w-[136px]"
+              title="Theme"
+            ></select>
+          </div>
+
+          <!-- Style Pack -->
+          <div
+            id="packSelectShell"
+            class="premium-select premium-select--pack"
+            data-pack="base"
+          >
+            <span class="premium-select-icon" aria-hidden="true">
+              <span class="premium-icon-stack">
+                <span class="premium-icon-state premium-icon-state--base">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      class="pi-stroke"
+                      d="M6 9.5 12 6l6 3.5-6 3.5-6-3.5Z"
+                    />
+                    <path
+                      class="pi-stroke pi-pack-base-float pi-anim"
+                      d="M7.8 12.6 12 15l4.2-2.4"
+                    />
+                    <path class="pi-stroke" d="M7.8 15.2 12 17.6l4.2-2.4" />
+                  </svg>
+                </span>
+                <span class="premium-icon-state premium-icon-state--ultra">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <circle
+                      class="pi-stroke pi-pack-ultra-ring pi-anim"
+                      cx="12"
+                      cy="12"
+                      r="8.2"
+                      stroke-dasharray="2.2 2.6"
+                    />
+                    <path
+                      class="pi-stroke"
+                      d="M6.5 10.4 9 7.2l3 2.7 3-2.7 2.5 3.2-5.5 6.6-5.5-6.6Z"
+                    />
+                    <path
+                      class="pi-stroke pi-pack-ultra-glint pi-anim"
+                      d="M8.2 9.8h7.6"
+                    />
+                  </svg>
+                </span>
+                <span class="premium-icon-state premium-icon-state--pro">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <circle
+                      class="pi-stroke pi-pack-pro-orbit pi-anim"
+                      cx="12"
+                      cy="12"
+                      r="8.1"
+                      stroke-dasharray="1.8 2.4"
+                    />
+                    <rect
+                      class="pi-stroke"
+                      x="8.25"
+                      y="8.25"
+                      width="7.5"
+                      height="7.5"
+                      rx="1.55"
+                    />
+                    <path
+                      class="pi-stroke pi-pack-pro-grid pi-anim"
+                      d="M12 8.25v7.5M8.25 12h7.5"
+                    />
+                    <circle
+                      class="pi-dot pi-pack-pro-core pi-anim"
+                      cx="12"
+                      cy="12"
+                      r="1.08"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </span>
+            <select
+              id="packSelect"
+              onchange="app.setStylePack(this.value)"
+              class="control-surface premium-select-input bg-transparent border border-[var(--border)] text-[var(--text)] text-sm rounded-2xl p-2.5 focus:outline-none font-black cursor-pointer backdrop-blur-md min-w-[136px]"
+              title="Style Pack"
+            ></select>
+          </div>
+
+          <!-- Animation Intensity (Icon Only) -->
+          <div
+            id="animIntensityShell"
+            class="intensity-icon-picker control-surface"
+            data-intensity="high"
+            data-anim-enabled="on"
+            title="Animation Intensity"
+            role="group"
+            aria-label="Animation Intensity"
+          >
+            <button
+              type="button"
+              id="btnIntensityUltraLow"
+              class="intensity-icon-btn"
+              data-value="ultra-low"
+              aria-pressed="false"
+              onclick="app.setAnimIntensity('ultra-low')"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  class="ii-bolt ii-anim ii-anim-ultra"
+                  d="M10.2 4.8h4.2l-2.2 4h2.7l-5.5 8 .9-5h-2.8l2.7-7Z"
+                />
+              </svg>
+            </button>
+            <button
+              type="button"
+              id="btnIntensityLow"
+              class="intensity-icon-btn"
+              data-value="low"
+              aria-pressed="false"
+              onclick="app.setAnimIntensity('low')"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  class="ii-bolt ii-anim ii-anim-low-a"
+                  d="M5.2 6.1h3.8L7 9.5h2.3l-4.3 6.4.7-4H3.8l1.4-5.8Z"
+                />
+                <path
+                  class="ii-bolt ii-anim ii-anim-low-b"
+                  d="M13.6 5.2h4.2l-2.1 3.9h2.5l-4.8 7.2.8-4.5h-2.4l1.8-6.6Z"
+                />
+              </svg>
+            </button>
+            <button
+              type="button"
+              id="btnIntensityHigh"
+              class="intensity-icon-btn"
+              data-value="high"
+              aria-pressed="false"
+              onclick="app.setAnimIntensity('high')"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle
+                  class="ii-stroke ii-anim ii-core-ring"
+                  cx="12"
+                  cy="12"
+                  r="8.2"
+                  stroke-dasharray="2.2 2.8"
+                />
+                <path
+                  class="ii-bolt ii-anim ii-anim-high-a"
+                  d="M4.4 6.8h3.5L6.2 9.8h2.1l-3.6 5.5.5-3.5H3.5l.9-5Z"
+                />
+                <path
+                  class="ii-bolt ii-anim ii-anim-high-b"
+                  d="M10.1 4.9h4.1L12 8.7h2.7l-5.3 8.3.9-5.1H7.8l2.3-7Z"
+                />
+                <path
+                  class="ii-bolt ii-anim ii-anim-high-c"
+                  d="M17 6.4h3.5l-1.9 3h2.2l-3.8 5.8.5-3.6h-1.9l1.4-5.2Z"
+                />
+                <circle
+                  class="ii-dot ii-anim ii-core-dot"
+                  cx="12"
+                  cy="12"
+                  r="1"
+                />
+              </svg>
+            </button>
+            <select
+              id="animIntensitySelect"
+              onchange="app.setAnimIntensity(this.value)"
+              class="hidden"
+              aria-hidden="true"
+              tabindex="-1"
+            ></select>
+          </div>
+
+          <button
+            id="btnAnimStatus"
+            onclick="app.toggleAnim()"
+            class="anim-status-btn control-btn"
+            title="Animation Status"
+            type="button"
+            aria-pressed="true"
+          >
+            <span class="anim-status-visual" aria-hidden="true">
+              <span class="anim-status-ring"></span>
+              <span class="anim-status-orbit">
+                <span class="anim-status-dot anim-status-dot--a"></span>
+                <span class="anim-status-dot anim-status-dot--b"></span>
+              </span>
+              <span class="anim-status-core"></span>
+            </span>
+            <span id="txtAnimStatusShort" class="anim-status-short">Anim</span>
+          </button>
+
+          <!-- UI Mode -->
+          <div
+            id="uiModeShell"
+            class="ui-mode-icon-picker control-surface"
+            data-ui-mode="auto"
+            title="UI Mode"
+            role="group"
+            aria-label="UI Mode"
+          >
+            <button
+              type="button"
+              id="btnUiModeDesktop"
+              class="ui-mode-icon-btn"
+              data-mode="desktop"
+              aria-pressed="false"
+              onclick="app.setUiMode('desktop')"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect
+                  class="umi-stroke"
+                  x="4.1"
+                  y="5.2"
+                  width="15.8"
+                  height="10.6"
+                  rx="2.1"
+                />
+                <path class="umi-stroke" d="M2.9 18.3h18.2" />
+                <path class="umi-stroke" d="M10 18.3h4" />
+                <rect
+                  class="umi-fill"
+                  x="6.4"
+                  y="7.2"
+                  width="11.2"
+                  height="6.2"
+                  rx="1.2"
+                />
+                <path
+                  class="umi-stroke umi-scan uii-anim pi-laptop-scan"
+                  d="M7.1 10.3h4.4"
+                />
+              </svg>
+            </button>
+            <button
+              type="button"
+              id="btnUiModeMobile"
+              class="ui-mode-icon-btn"
+              data-mode="mobile"
+              aria-pressed="false"
+              onclick="app.setUiMode('mobile')"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle
+                  class="umi-stroke umi-wave uii-anim pi-phone-pulse"
+                  cx="12"
+                  cy="10.8"
+                  r="5.3"
+                />
+                <rect
+                  class="umi-stroke"
+                  x="8"
+                  y="3.8"
+                  width="8"
+                  height="16.4"
+                  rx="2.5"
+                />
+                <rect
+                  class="umi-fill"
+                  x="9.7"
+                  y="6.4"
+                  width="4.6"
+                  height="7.2"
+                  rx="0.95"
+                />
+                <path
+                  class="umi-stroke umi-swipe uii-anim pi-phone-swipe"
+                  d="M10.1 11.1h3.8"
+                />
+                <circle class="umi-dot" cx="12" cy="17.1" r="0.82" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              id="btnUiModeAuto"
+              class="ui-mode-icon-btn"
+              data-mode="auto"
+              aria-pressed="false"
+              onclick="app.setUiMode('auto')"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle
+                  class="umi-stroke umi-orbit uii-anim pi-auto-orbit"
+                  cx="12"
+                  cy="12"
+                  r="8"
+                  stroke-dasharray="2.1 2.3"
+                />
+                <rect
+                  class="umi-stroke"
+                  x="9"
+                  y="9"
+                  width="6"
+                  height="6"
+                  rx="1.4"
+                />
+                <path
+                  class="umi-stroke"
+                  d="M12 5.7v1.5M12 16.8v1.5M5.7 12h1.5M16.8 12h1.5"
+                />
+                <circle
+                  class="umi-dot umi-spark uii-anim pi-auto-spark"
+                  cx="17.5"
+                  cy="6.5"
+                  r="1.15"
+                />
+              </svg>
+            </button>
+            <select
+              id="uiModeSelect"
+              onchange="app.setUiMode(this.value)"
+              class="hidden"
+              aria-hidden="true"
+              tabindex="-1"
+              title="UI Mode"
+            ></select>
+          </div>
+
+          <!-- Cloud Sync -->
+          <button
+            id="btnInstallApp"
+            onclick="app.installAsStandaloneApp()"
+            class="control-btn install-app-btn"
+            title="Install App"
+            type="button"
+            data-state="pending"
+            hidden
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 3.8v10.1" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" />
+              <path d="m8.8 10.8 3.2 3.4 3.2-3.4" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+              <rect x="4.3" y="15.7" width="15.4" height="4.4" rx="1.4" fill="none" stroke="currentColor" stroke-width="1.7" />
+            </svg>
+            <span id="txtInstallAppLabel">Install</span>
+          </button>
+
+          <button
+            id="btnCloudSync"
+            onclick="cloudSync.openSettingsModal()"
+            class="sync-auth-btn control-btn"
+            title="Cloud Sync"
+            type="button"
+            data-state="offline"
+          >
+            <span class="sync-auth-visual" aria-hidden="true">
+              <span class="sync-auth-orbit">
+                <span class="sync-auth-dot"></span>
+              </span>
+              <span class="sync-auth-ring"></span>
+              <span class="sync-auth-core"></span>
+            </span>
+            <span class="sync-auth-meta">
+              <span id="txtCloudSyncLabel" class="sync-auth-label">Sync</span>
+              <span
+                id="txtCloudSyncState"
+                class="sync-auth-state"
+                data-state="offline"
+                >Offline</span
+              >
+            </span>
+          </button>
+
+          <div
+            id="dataIoShell"
+            class="data-io-inline control-surface"
+            role="group"
+            aria-label="JSON Data Actions"
+          >
+            <button
+              id="btnDataExportJson"
+              type="button"
+              class="data-io-action data-io-action--download control-btn"
+              onclick="app.exportDataJson()"
+              title="Export JSON"
+              aria-label="Export JSON"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect
+                  class="dio-action-soft"
+                  x="6.4"
+                  y="4.7"
+                  width="11.2"
+                  height="8.5"
+                  rx="2.25"
+                />
+                <path class="dio-action-stroke" d="M4.6 18.1h14.8" />
+                <path class="dio-action-stroke" d="M12 7.2v8.8" />
+                <path
+                  class="dio-action-stroke dio-anim-down"
+                  d="m8.8 12.4 3.2 3.4 3.2-3.4"
+                />
+                <path class="dio-action-accent dio-flow-down" d="M8 9.1h8" />
+                <circle class="dio-action-core" cx="18" cy="8" r="1.05" />
+              </svg>
+            </button>
+            <button
+              id="btnDataImportJson"
+              type="button"
+              class="data-io-action data-io-action--upload control-btn"
+              onclick="app.triggerJsonImport()"
+              title="Import JSON"
+              aria-label="Import JSON"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect
+                  class="dio-action-soft"
+                  x="6.4"
+                  y="10.8"
+                  width="11.2"
+                  height="8.5"
+                  rx="2.25"
+                />
+                <path class="dio-action-stroke" d="M4.6 18.1h14.8" />
+                <path class="dio-action-stroke" d="M12 15V6.2" />
+                <path
+                  class="dio-action-stroke dio-anim-up"
+                  d="m8.8 9.4 3.2-3.4 3.2 3.4"
+                />
+                <path class="dio-action-accent dio-flow-up" d="M8 14.9h8" />
+                <circle class="dio-action-core" cx="18" cy="15.2" r="1.05" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </nav>
+      <input
+        type="file"
+        id="jsonImportInput"
+        accept=".json,application/json"
+        class="hidden"
+        onchange="app.handleJsonImportInput(this)"
+      />
+      <input
+        type="file"
+        id="attendanceJsonImportInput"
+        accept=".json,application/json"
+        class="hidden"
+        onchange="app.handleAttendanceImportInput(this)"
+      />
+
+      <!-- Sidebar -->
+      <aside id="sidePanel" class="col-span-12 lg:col-span-3 space-y-6">
+        <!-- Profile Stats -->
+        <div class="theme-card profile-card p-6">
+          <div class="profile-head">
+            <div class="profile-name-stack">
+              <span class="profile-name-icon" aria-hidden="true">
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.9"
+                    d="M12 12a5 5 0 100-10 5 5 0 000 10zM4.5 21a7.5 7.5 0 0115 0"
+                  />
+                </svg>
+              </span>
+              <div class="profile-name-meta">
+                <div class="flex items-center gap-2">
+                  <h3 id="txtProfile" class="font-black text-lg truncate"></h3>
+                  <button
+                    id="btnEditProfile"
+                    onclick="ui.openProfileMetaModal()"
+                    class="w-7 h-7 rounded-xl border border-[var(--border)] text-[var(--muted)] hover:text-[var(--text)] hover:border-[var(--accent)] transition-colors flex items-center justify-center"
+                    title="Edit Profile Name"
+                  >
+                    <svg
+                      class="w-3.5 h-3.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.586a2 2 0 112.828 2.828L12 14l-4 1 1-4 8.586-8.586z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <div id="txtProfileMajor" class="profile-major-pill"></div>
+              </div>
+            </div>
+            <span id="txtProfileTerm" class="chip profile-term-chip"></span>
+          </div>
+          <div class="profile-start-row">
+            <div class="profile-start-head">
+              <span class="profile-start-icon" aria-hidden="true">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.8"
+                    d="M8 7V4m8 3V4m-9 6h10M5 20h14a1 1 0 001-1V8a1 1 0 00-1-1H5a1 1 0 00-1 1v11a1 1 0 001 1z"
+                  />
+                </svg>
+              </span>
+              <div class="profile-start-text">
+                <div id="txtClassStartLabel" class="profile-start-label"></div>
+                <div id="txtClassStartDate" class="profile-start-value"></div>
+              </div>
+              <button
+                type="button"
+                class="profile-start-edit"
+                onclick="ui.openProfileMetaModal()"
+              >
+                تنظیم
+              </button>
+            </div>
+            <div id="txtClassStartMeta" class="profile-start-meta"></div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3 text-center">
+            <div
+              class="stat-tile p-3 rounded-2xl bg-[var(--bg)]/25 border border-[var(--border)] backdrop-blur-md"
+            >
+              <div class="text-2xl font-black" id="statUnits">17</div>
+              <div
+                class="text-[10px] opacity-70 font-black"
+                id="txtUnits"
+              ></div>
+            </div>
+            <div
+              class="stat-tile p-3 rounded-2xl bg-[var(--bg)]/25 border border-[var(--border)] backdrop-blur-md"
+            >
+              <div class="text-2xl font-black" id="statHours">16.5</div>
+              <div
+                class="text-[10px] opacity-70 font-black"
+                id="txtHours"
+              ></div>
+            </div>
+          </div>
+
+          <div
+            class="stat-tile mt-3 p-3 rounded-2xl bg-[var(--bg)]/25 border border-[var(--border)] text-center backdrop-blur-md"
+          >
+            <div class="text-2xl font-black" id="statClasses">11</div>
+            <div
+              class="text-[10px] opacity-70 font-black"
+              id="txtClasses"
+            ></div>
+          </div>
+        </div>
+
+        <!-- Next Class -->
+        <div
+          id="nextClassWidget"
+          class="theme-card side-widget next-class-card p-6 relative overflow-hidden border-r-4 border-r-[var(--accent)]"
+        >
+          <div class="next-title-wrap">
+            <span
+              class="widget-title-icon widget-title-icon--next"
+              aria-hidden="true"
+            >
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.9"
+                  d="M12 8v4l3 2m6-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </span>
+            <h4
+              id="txtNextClass"
+              class="text-xs font-black opacity-60 uppercase tracking-widest"
+            ></h4>
+          </div>
+          <div id="nextClassContainer" class="relative z-10"></div>
+        </div>
+
+        <!-- Today Focus Widget -->
+        <div
+          id="todayFocusWidget"
+          class="theme-card side-widget today-focus-widget p-5 flex flex-col"
+        >
+          <div class="widget-title-wrap mb-3">
+            <span
+              class="widget-title-icon widget-title-icon--today-focus"
+              aria-hidden="true"
+            >
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.9"
+                  d="M12 3l2.7 5.47L21 9.4l-4.5 4.4 1.06 6.2L12 17.4 6.44 20l1.06-6.2L3 9.4l6.3-.93L12 3z"
+                />
+              </svg>
+            </span>
+            <h4 id="txtTodayFocus" class="font-black">تمرکز امروز</h4>
+          </div>
+          <div id="todayFocusContainer" class="today-focus-container"></div>
+        </div>
+
+        <!-- Exam Widget -->
+        <div
+          id="examWidget"
+          class="theme-card side-widget exam-widget p-6 flex flex-col"
+        >
+          <div class="exam-widget-head">
+            <div class="widget-title-wrap">
+              <span
+                class="widget-title-icon widget-title-icon--exam"
+                aria-hidden="true"
+              >
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.9"
+                    d="M8 2v3M16 2v3M4 9h16M7 13h3M7 17h6M6 5h12a2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V7a2 2 0 012-2z"
+                  />
+                </svg>
+              </span>
+              <h4 id="txtExams" class="font-black"></h4>
+            </div>
+            <button
+              onclick="ui.openExamModal()"
+              class="widget-add-btn widget-add-btn--exam"
+              aria-label="افزودن آزمون"
+              title="افزودن آزمون"
+              type="button"
+            >
+              <span class="wab-orbit" aria-hidden="true"></span>
+              <svg class="wab-icon" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  class="wab-stroke"
+                  d="M8 3v2.2M16 3v2.2M5 7h14M7 10h10a2 2 0 0 1 2 2v6.2a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V12a2 2 0 0 1 2-2z"
+                />
+                <path class="wab-stroke" d="M9 14h2.5M13.5 14H16M9 17h4.5" />
+              </svg>
+              <span class="wab-plus" aria-hidden="true">
+                <svg viewBox="0 0 16 16">
+                  <path d="M8 3.2v9.6M3.2 8h9.6" />
+                </svg>
+              </span>
+            </button>
+          </div>
+          <div id="examList" class="exam-widget-scroll space-y-3"></div>
+        </div>
+
+        <!-- Notes Widget -->
+        <div
+          id="notesWidget"
+          class="theme-card side-widget p-6 flex flex-col h-[340px]"
+        >
+          <div class="flex justify-between items-center mb-4">
+            <div class="widget-title-wrap">
+              <span
+                class="widget-title-icon widget-title-icon--note"
+                aria-hidden="true"
+              >
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.9"
+                    d="M7 3h7l5 5v13a1 1 0 01-1 1H7a2 2 0 01-2-2V5a2 2 0 012-2z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.9"
+                    d="M14 3v5h5M9 13h6M9 17h4"
+                  />
+                </svg>
+              </span>
+              <h4 id="txtNotesBoard" class="font-black"></h4>
+            </div>
+            <button
+              onclick="ui.openNoteModal()"
+              class="widget-add-btn widget-add-btn--note"
+              aria-label="افزودن یادداشت"
+              title="افزودن یادداشت"
+              type="button"
+            >
+              <span class="wab-orbit" aria-hidden="true"></span>
+              <svg class="wab-icon" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  class="wab-stroke"
+                  d="M7 3h8l4 4v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"
+                />
+                <path class="wab-stroke" d="M15 3v4h4M9 11h6M9 15h4" />
+              </svg>
+              <span class="wab-plus" aria-hidden="true">
+                <svg viewBox="0 0 16 16">
+                  <path d="M8 3.2v9.6M3.2 8h9.6" />
+                </svg>
+              </span>
+            </button>
+          </div>
+          <div
+            id="noteList"
+            class="flex-1 overflow-y-auto space-y-3 pr-2"
+          ></div>
+        </div>
+
+        <!-- Handouts Widget -->
+        <div
+          id="handoutsWidget"
+          class="theme-card side-widget p-6 flex flex-col h-[340px]"
+        >
+          <div class="flex justify-between items-center mb-4">
+            <div class="flex items-center gap-2">
+              <span
+                class="inline-flex items-center justify-center w-7 h-7 rounded-xl border border-[var(--border)] bg-[var(--bg)]/30"
+                aria-hidden="true"
+              >
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.8"
+                    d="M7 3h7l5 5v13a1 1 0 01-1 1H7a2 2 0 01-2-2V5a2 2 0 012-2z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.8"
+                    d="M14 3v5h5M9 13h6M9 17h6"
+                  />
+                </svg>
+              </span>
+              <h4 id="txtHandouts" class="font-black"></h4>
+            </div>
+            <button
+              onclick="ui.openHandoutModal()"
+              class="widget-add-btn widget-add-btn--handout"
+              aria-label="افزودن جزوه"
+              title="افزودن جزوه"
+              type="button"
+            >
+              <span class="wab-orbit" aria-hidden="true"></span>
+              <svg class="wab-icon" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  class="wab-stroke"
+                  d="M9 4h8a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"
+                />
+                <path class="wab-stroke" d="M7 8H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h8" />
+                <path class="wab-stroke" d="M11 9h5M11 13h5" />
+              </svg>
+              <span class="wab-plus" aria-hidden="true">
+                <svg viewBox="0 0 16 16">
+                  <path d="M8 3.2v9.6M3.2 8h9.6" />
+                </svg>
+              </span>
+            </button>
+          </div>
+          <div
+            id="handoutList"
+            class="flex-1 overflow-y-auto space-y-3 pr-2"
+          ></div>
+        </div>
+
+        <!-- Attendance Widget -->
+        <div
+          id="attendanceWidget"
+          class="theme-card side-widget p-6 flex flex-col h-[420px]"
+        >
+          <div class="flex justify-between items-center mb-4">
+            <div class="widget-title-wrap">
+              <span
+                class="widget-title-icon widget-title-icon--attendance"
+                aria-hidden="true"
+              >
+                <span class="att-title-plus" aria-hidden="true">
+                  <svg viewBox="0 0 16 16">
+                    <path d="M8 3.4v9.2M3.4 8h9.2" />
+                  </svg>
+                </span>
+                <svg viewBox="0 0 24 24">
+                  <rect class="att-title-soft" x="6.1" y="6.1" width="11.8" height="14.3" rx="2.5" />
+                  <path class="att-title-stroke" d="M9.4 4.1h5.2a1.8 1.8 0 0 1 1.8 1.8v12.2a1.8 1.8 0 0 1-1.8 1.8H9.4a1.8 1.8 0 0 1-1.8-1.8V5.9a1.8 1.8 0 0 1 1.8-1.8Z" />
+                  <path class="att-title-stroke" d="M10.4 3h3.2a1 1 0 0 1 1 1v1h-5.2V4a1 1 0 0 1 1-1Z" />
+                  <path class="att-title-line" d="M10.1 10.4h3.4M10.1 13.1h2.4" />
+                  <circle class="att-title-dot" cx="16.7" cy="12.9" r="2.18" />
+                  <path class="att-title-check" d="m15.8 12.9.8.9 1.8-1.9" />
+                </svg>
+              </span>
+              <h4 id="txtAttendanceBoard" class="font-black"></h4>
+              <span
+                id="attendanceDayStatusBadge"
+                class="attendance-day-status"
+                data-state="pending"
+                role="status"
+                aria-live="polite"
+                aria-label="وضعیت ثبت این روز: ناقص"
+                title="وضعیت ثبت این روز: ناقص"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle class="ads-ring" cx="12" cy="12" r="8.7" />
+                  <path class="ads-check" d="m8.1 12.2 2.6 2.7 5.3-5.4" />
+                  <path class="ads-cross-a" d="m9 9 6 6" />
+                  <path class="ads-cross-b" d="m15 9-6 6" />
+                </svg>
+              </span>
+            </div>
+            <button
+              onclick="ui.openAttendanceSettingsModal()"
+              class="attendance-title-settings-btn"
+              title="Attendance Settings"
+              aria-label="Attendance Settings"
+              type="button"
+            >
+              <svg class="ats-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path class="ats-stroke" d="M9.2 4.2h5.6a1.9 1.9 0 0 1 1.9 1.9v11.6a1.9 1.9 0 0 1-1.9 1.9H9.2a1.9 1.9 0 0 1-1.9-1.9V6.1a1.9 1.9 0 0 1 1.9-1.9Z" />
+                <path class="ats-stroke" d="M10.4 3h3.2a1 1 0 0 1 1 1v1h-5.2V4a1 1 0 0 1 1-1Z" />
+                <path class="ats-stroke" d="m10.1 11.6 1.4 1.4 2.2-2.3" />
+                <path class="ats-stroke" d="M10.1 15.8h2.6" />
+                <circle class="ats-core" cx="15" cy="15.8" r="1.25" />
+              </svg>
+            </button>
+          </div>
+          <div id="attendanceSummary"></div>
+          <div
+            id="attendanceList"
+            class="flex-1 overflow-y-auto space-y-3 pr-2"
+          ></div>
+        </div>
+
+        <!-- Alert Widget -->
+        <div
+          id="alertsWidget"
+          class="theme-card side-widget p-6 flex flex-col h-[380px]"
+        >
+          <div class="flex justify-between items-center mb-4">
+            <div class="widget-title-wrap">
+              <span
+                class="widget-title-icon widget-title-icon--alert"
+                aria-hidden="true"
+              >
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.9"
+                    d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.72 3h16.92a2 2 0 001.72-3L13.71 3.86a2 2 0 00-3.42 0z"
+                  />
+                </svg>
+              </span>
+              <h4 id="txtAlerts" class="font-black"></h4>
+            </div>
+            <div class="flex items-center gap-2">
+              <button
+                id="btnNotifyPermission"
+                onclick="app.openNotificationSettings()"
+                class="notify-perm-btn"
+                title="وضعیت مجوز اعلان"
+                type="button"
+              >
+                <span class="notify-perm-core" aria-hidden="true">
+                  <svg class="notify-perm-icon" viewBox="0 0 24 24">
+                    <path class="np-stroke np-bell" d="M12 4.2a4.7 4.7 0 0 0-4.7 4.7v2.5a2.9 2.9 0 0 1-.85 2.05l-1.35 1.35h13.8l-1.35-1.35a2.9 2.9 0 0 1-.85-2.05V8.9A4.7 4.7 0 0 0 12 4.2Z" />
+                    <path class="np-stroke np-clapper" d="M10 17.3a2 2 0 0 0 4 0" />
+                    <path class="np-stroke np-ring np-ring--l" d="M6.1 7.9c-.75.62-1.24 1.45-1.44 2.36" />
+                    <path class="np-stroke np-ring np-ring--r" d="M17.9 7.9c.75.62 1.24 1.45 1.44 2.36" />
+                  </svg>
+                  <span class="notify-perm-dot"></span>
+                  <span class="notify-perm-check">
+                    <svg viewBox="0 0 16 16">
+                      <path d="m3.4 8.2 2.2 2.3 4.9-5" />
+                    </svg>
+                  </span>
+                </span>
+              </button>
+              <button
+                onclick="ui.openNoteModal(null, true)"
+                class="widget-add-btn widget-add-btn--alert"
+                aria-label="افزودن هشدار"
+                title="افزودن هشدار"
+                type="button"
+              >
+                <span class="wab-orbit" aria-hidden="true"></span>
+                <svg class="wab-icon" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                  <path class="wab-stroke" d="M6 11a6 6 0 1 1 12 0v3.4L20 16.5H4L6 14.4z" />
+                  <path class="wab-stroke" d="M10 18a2 2 0 0 0 4 0" />
+                  <path class="wab-stroke" d="M18.8 6.2v2.2M17.7 7.3h2.2" />
+                </svg>
+                <span class="wab-plus" aria-hidden="true">
+                  <svg viewBox="0 0 16 16">
+                    <path d="M8 3.2v9.6M3.2 8h9.6" />
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </div>
+          <button
+            id="notifyStatusHint"
+            onclick="app.openNotificationSettings()"
+            class="notify-status-hint"
+            type="button"
+            title="وضعیت اعلان سیستمی"
+          >
+            <span id="txtNotifyStatusTitle" class="notify-status-title"
+              >...</span
+            >
+            <span id="txtNotifyStatusDetail" class="notify-status-detail"
+              >...</span
+            >
+          </button>
+          <div id="notifyConnectPanel" class="notify-connect-panel">
+            <div class="notify-connect-head">
+              <span
+                id="txtNotifyConnectState"
+                class="notify-connect-state"
+                data-state="off"
+              >
+                <span class="notify-connect-dot" aria-hidden="true"></span>
+                <span>...</span>
+              </span>
+              <span id="txtNotifyConnectMeta" class="notify-connect-meta"
+                >...</span
+              >
+            </div>
+            <div id="txtNotifySwExplain" class="notify-sw-explain">...</div>
+            <div id="notifyChecklist" class="notify-checklist"></div>
+            <div class="notify-connect-actions">
+              <button
+                id="btnNotifyQuickFix"
+                onclick="app.runNotificationQuickFix(true)"
+                class="notify-action-btn notify-action-btn--fix"
+                type="button"
+              >
+                ...
+              </button>
+              <button
+                id="btnNotifyTest"
+                onclick="app.sendSystemNotificationTest()"
+                class="notify-action-btn notify-action-btn--test"
+                type="button"
+              >
+                ...
+              </button>
+              <button
+                id="btnNotifyGuide"
+                onclick="app.openNotificationGuide()"
+                class="notify-action-btn notify-action-btn--guide"
+                type="button"
+              >
+                ...
+              </button>
+            </div>
+          </div>
+          <div
+            id="alertList"
+            class="flex-1 overflow-y-auto space-y-3 pr-2"
+          ></div>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main id="mainPanel" class="col-span-12 lg:col-span-9 space-y-6">
+        <!-- Tools -->
+        <div
+          class="theme-card tools-panel p-3 flex flex-wrap gap-3 items-center justify-between"
+        >
+          <div
+            class="view-switch"
+          >
+            <button
+              onclick="app.setView('grid')"
+              id="viewGrid"
+              class="view-switch-btn is-active"
+              type="button"
+              aria-label="نمای جدول"
+              aria-pressed="true"
+            >
+              <span class="vs-icon-wrap" aria-hidden="true">
+                <svg
+                  class="vs-icon"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <rect class="vs-stroke" x="3.5" y="3.8" width="17" height="16.4" rx="3" />
+                  <rect class="vs-fill vs-grid-accent" x="6.2" y="6.5" width="4.6" height="4.6" rx="1.15" />
+                  <rect class="vs-fill" x="13.2" y="6.5" width="4.6" height="4.6" rx="1.15" />
+                  <rect class="vs-fill" x="6.2" y="13.3" width="4.6" height="4.6" rx="1.15" />
+                  <rect class="vs-fill" x="13.2" y="13.3" width="4.6" height="4.6" rx="1.15" />
+                </svg>
+                <span class="vs-icon-glow" aria-hidden="true"></span>
+              </span>
+              <span id="txtGrid"></span>
+            </button>
+            <button
+              onclick="app.setView('list')"
+              id="viewList"
+              class="view-switch-btn"
+              type="button"
+              aria-label="نمای لیست"
+              aria-pressed="false"
+            >
+              <span class="vs-icon-wrap" aria-hidden="true">
+                <svg
+                  class="vs-icon"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <rect class="vs-stroke" x="3.5" y="3.8" width="17" height="16.4" rx="3" />
+                  <path class="vs-stroke" d="M9 7.2h8.1M9 12h8.1M9 16.8h8.1" />
+                  <circle class="vs-fill vs-list-accent" cx="6.8" cy="7.2" r="1.15" />
+                  <circle class="vs-fill" cx="6.8" cy="12" r="1.15" />
+                  <circle class="vs-fill" cx="6.8" cy="16.8" r="1.15" />
+                </svg>
+                <span class="vs-icon-glow" aria-hidden="true"></span>
+              </span>
+              <span id="txtList"></span>
+            </button>
+          </div>
+          <div class="flex-1 max-w-md relative">
+            <input
+              type="text"
+              id="searchInput"
+              oninput="app.search(this.value)"
+              class="inp search-input pr-4 pl-10 text-sm"
+              placeholder="..."
+            />
+            <svg
+              class="w-4 h-4 absolute left-3 top-3 opacity-60"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          </div>
+
+          <button
+            onclick="ui.openClassModal()"
+            class="add-class-btn px-5 py-2.5 bg-[var(--accent)] text-[var(--bg)] rounded-2xl font-black text-sm hover:brightness-110 transition-all shadow-xl flex items-center gap-2"
+          >
+            <span>+</span> <span id="txtAddClass"></span>
+          </button>
+        </div>
+
+        <!-- Schedule -->
+        <div id="scheduleContainer" class="animate-fade-in"></div>
+      </main>
+    </div>
+
+    <nav
+      id="appBottomNav"
+      class="app-bottom-nav"
+      role="navigation"
+      aria-label="ناوبری سریع اپ"
+    >
+      <button
+        type="button"
+        class="app-bottom-nav-btn"
+        data-tab="today"
+        onclick="app.navigateBottomTab('today')"
+        aria-pressed="false"
+      >
+        <span class="label">امروز</span>
+      </button>
+      <button
+        type="button"
+        class="app-bottom-nav-btn is-active"
+        data-tab="alerts"
+        onclick="app.navigateBottomTab('alerts')"
+        aria-pressed="true"
+      >
+        <span class="label">هشدارها</span>
+      </button>
+      <button
+        type="button"
+        class="app-bottom-nav-btn"
+        data-tab="handouts"
+        onclick="app.navigateBottomTab('handouts')"
+        aria-pressed="false"
+      >
+        <span class="label">جزوات</span>
+      </button>
+      <button
+        type="button"
+        class="app-bottom-nav-btn"
+        data-tab="exams"
+        onclick="app.navigateBottomTab('exams')"
+        aria-pressed="false"
+      >
+        <span class="label">آزمون‌ها</span>
+      </button>
+      <button
+        type="button"
+        class="app-bottom-nav-btn"
+        data-tab="attendance"
+        onclick="app.navigateBottomTab('attendance')"
+        aria-pressed="false"
+      >
+        <span class="label">حضورغیاب</span>
+      </button>
+    </nav>
+
+    <div id="quickFabRoot" class="quick-fab-root" data-open="off">
+      <div id="quickFabActions" class="quick-fab-actions" aria-hidden="true">
+        <button
+          type="button"
+          class="quick-fab-action"
+          onclick="app.quickAction('class')"
+        >
+          کلاس
+        </button>
+        <button
+          type="button"
+          class="quick-fab-action"
+          onclick="app.quickAction('exam')"
+        >
+          آزمون
+        </button>
+        <button
+          type="button"
+          class="quick-fab-action"
+          onclick="app.quickAction('note')"
+        >
+          یادداشت
+        </button>
+        <button
+          type="button"
+          class="quick-fab-action"
+          onclick="app.quickAction('handout')"
+        >
+          جزوه
+        </button>
+      </div>
+      <button
+        id="quickFabToggle"
+        type="button"
+        class="quick-fab-toggle"
+        aria-expanded="false"
+        aria-controls="quickFabActions"
+        onclick="app.toggleQuickFab()"
+      >
+        +
+      </button>
+    </div>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
